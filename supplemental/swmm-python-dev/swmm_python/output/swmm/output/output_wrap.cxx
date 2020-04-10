@@ -2778,6 +2778,10 @@ namespace swig {
 }
 
 
+
+#define PY_SSIZE_T_CLEAN  /* Make "s#" use Py_ssize_t rather than int. */
+#include <Python.h>
+
 #include "swmm_output.h"
 
 #define SWIG_FILE_WITH_INIT

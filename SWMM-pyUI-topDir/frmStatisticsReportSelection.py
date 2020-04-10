@@ -4,8 +4,8 @@ from PyQt5.QtWidgets import QMainWindow
 import core.swmm.stats as ostatistics
 #from core.swmm.stats import TStatsSelection
 from ui.help import HelpHandler
-from ui.SWMM.frmStatisticsReportSelectionDesigner import Ui_frmStatisticsReportSelection
-from ui.SWMM.frmStatisticsReport import frmStatisticsReport
+from frmStatisticsReportSelectionDesigner import Ui_frmStatisticsReportSelection
+from frmStatisticsReport import frmStatisticsReport
 from ui.help import HelpHandler
 import Externals.swmm.outputapi.SMOutputSWIG as SMO
 

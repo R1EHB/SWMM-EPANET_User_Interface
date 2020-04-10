@@ -2,7 +2,7 @@ import PyQt5.QtGui as QtGui
 import PyQt5.QtCore as QtCore
 from PyQt5.QtWidgets import QMainWindow, QTableWidgetItem, QVBoxLayout, QSizePolicy
 from ui.help import HelpHandler
-from ui.SWMM.frmStatisticsReportDesigner import Ui_frmStatisticsReport
+from frmStatisticsReportDesigner import Ui_frmStatisticsReport
 import numpy as np
 from pandas import Series, DataFrame
 # import matplotlib

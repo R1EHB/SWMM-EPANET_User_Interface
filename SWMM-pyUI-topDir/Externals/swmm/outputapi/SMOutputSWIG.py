@@ -4,7 +4,7 @@ Written for SWMM-EPANET User Interface project
 @ swmm_output-0.1.0a0-cp36-cp36m-win_amd64.zip
 """
 import time, datetime
-from output import _output as _lib
+from .output import _output as _lib
 
 
 class SwmmOutputCategoryBase:
@@ -180,38 +180,41 @@ class SwmmOutputSubcatchment(SwmmOutputCategoryBase):
     # attribute_groundwater_elevation = SwmmOutputAttribute(_lib.SMO_gwtable_elev, "Groundwater Elevation", ('ft', 'm'))
     # attribute_soil_moisture    = SwmmOutputAttribute(_lib.SMO_soil_moisture, "Soil Moisture", ('', ''))
 
-    attribute_precipitation    = SwmmOutputAttribute(_lib.SubcatchAttribute.RAINFALL, "Precipitation", ('in/hr', 'mm/hr'))
-    attribute_snow_depth       = SwmmOutputAttribute(_lib.SubcatchAttribute.SNOW_DEPTH,"Snow Depth", ('in', 'mm'))
-    attribute_evaporation      = SwmmOutputAttribute(_lib.SubcatchAttribute.EVAP_LOSS, "Evaporation", ('in/day', 'mm/day'))
-    attribute_infiltration     = SwmmOutputAttribute(_lib.SubcatchAttribute.INFIL_LOSS, "Infiltration", ('in/hr', 'mm/hr'))
-    attribute_runoff           = SwmmOutputAttribute(_lib.SubcatchAttribute.RUNOFF_RATE, "Runoff", ('CFS', 'CMS'))
-    attribute_groundwater_flow = SwmmOutputAttribute(_lib.SubcatchAttribute.GW_OUTFLOW_RATE, "Groundwater Flow", ('CFS', 'CMS'))
-    attribute_groundwater_elevation = SwmmOutputAttribute(_lib.SubcatchAttribute.GW_TABLE_ELEV, "Groundwater Elevation", ('ft', 'm'))
-    attribute_soil_moisture    = SwmmOutputAttribute(_lib.SubcatchAttribute.SOIL_MOISTURE, "Soil Moisture", ('', ''))
+    # 10 April 2020-Erik Beck Problems with not finding these in compiled library file
+    # disabling for now
+    
+#    attribute_precipitation    = SwmmOutputAttribute(_lib.SubcatchAttribute.RAINFALL, "Precipitation", ('in/hr', 'mm/hr'))
+#    attribute_snow_depth       = SwmmOutputAttribute(_lib.SubcatchAttribute.SNOW_DEPTH,"Snow Depth", ('in', 'mm'))
+#    attribute_evaporation      = SwmmOutputAttribute(_lib.SubcatchAttribute.EVAP_LOSS, "Evaporation", ('in/day', 'mm/day'))
+#    attribute_infiltration     = SwmmOutputAttribute(_lib.SubcatchAttribute.INFIL_LOSS, "Infiltration", ('in/hr', 'mm/hr'))
+#    attribute_runoff           = SwmmOutputAttribute(_lib.SubcatchAttribute.RUNOFF_RATE, "Runoff", ('CFS', 'CMS'))
+#    attribute_groundwater_flow = SwmmOutputAttribute(_lib.SubcatchAttribute.GW_OUTFLOW_RATE, "Groundwater Flow", ('CFS', 'CMS'))
+#    attribute_groundwater_elevation = SwmmOutputAttribute(_lib.SubcatchAttribute.GW_TABLE_ELEV, "Groundwater Elevation", ('ft', 'm'))
+#    attribute_soil_moisture    = SwmmOutputAttribute(_lib.SubcatchAttribute.SOIL_MOISTURE, "Soil Moisture", ('', ''))
 
-    attribute_precipitation.smo_type = _lib.SMO_subcatch
-    attribute_snow_depth.smo_type = _lib.SMO_subcatch
-    attribute_evaporation.smo_type = _lib.SMO_subcatch
-    attribute_infiltration.smo_type = _lib.SMO_subcatch
-    attribute_runoff.smo_type = _lib.SMO_subcatch
-    attribute_groundwater_flow.smo_type = _lib.SMO_subcatch
-    attribute_groundwater_elevation.smo_type = _lib.SMO_subcatch
-    attribute_soil_moisture.smo_type = _lib.SMO_subcatch
+#    attribute_precipitation.smo_type = _lib.SMO_subcatch
+#    attribute_snow_depth.smo_type = _lib.SMO_subcatch
+#    attribute_evaporation.smo_type = _lib.SMO_subcatch
+#    attribute_infiltration.smo_type = _lib.SMO_subcatch
+#    attribute_runoff.smo_type = _lib.SMO_subcatch
+#    attribute_groundwater_flow.smo_type = _lib.SMO_subcatch
+#    attribute_groundwater_elevation.smo_type = _lib.SMO_subcatch
+#    attribute_soil_moisture.smo_type = _lib.SMO_subcatch
 
-    attributes = [attribute_precipitation,
-                  attribute_snow_depth,
-                  attribute_evaporation,
-                  attribute_infiltration,
-                  attribute_runoff,
-                  attribute_groundwater_flow,
-                  attribute_groundwater_elevation,
-                  attribute_soil_moisture]
+#    attributes = [attribute_precipitation,
+#                  attribute_snow_depth,
+#                  attribute_evaporation,
+#                  attribute_infiltration,
+#                  attribute_runoff,
+#                  attribute_groundwater_flow,
+#                  attribute_groundwater_elevation,
+#                  attribute_soil_moisture]
 
     _count_flag = 0 # _lib.subcatchCount
     _get_series = _lib.getsubcatchseries
     _get_attribute = _lib.getsubcatchattribute
     _get_result = _lib.getsubcatchresult
-    _element_type = _lib.ElementType.SUBCATCH # _lib.SMO_subcatch  # typedef enum {subcatch, node, link, sys} smo_elementType
+#    _element_type = _lib.ElementType.SUBCATCH # _lib.SMO_subcatch  # typedef enum {subcatch, node, link, sys} smo_elementType
     _first_pollutant = _lib.SMO_pollutant_conc_subcatch
 
 
@@ -225,32 +228,32 @@ class SwmmOutputNode(SwmmOutputCategoryBase):
     # attribute_total_inflow   = SwmmOutputAttribute(_lib.SMO_total_inflow,         "Total Inflow",   ('CFS', 'CMS'))
     # attribute_flooding       = SwmmOutputAttribute(_lib.SMO_flooding_losses,      "Flooding",       ('CFS', 'CMS'))
 
-    attribute_depth          = SwmmOutputAttribute(_lib.NodeAttribute.INVERT_DEPTH,  "Depth",          ('ft', 'm'))
-    attribute_head           = SwmmOutputAttribute(_lib.NodeAttribute.HYDRAULIC_HEAD, "Head",           ('ft', 'm'))
-    attribute_volume         = SwmmOutputAttribute(_lib.NodeAttribute.PONDED_VOLUME, "Volume",         ('ft3', 'm3'))
-    attribute_lateral_inflow = SwmmOutputAttribute(_lib.NodeAttribute.LATERAL_INFLOW, "Lateral Inflow", ('CFS', 'CMS'))
-    attribute_total_inflow   = SwmmOutputAttribute(_lib.NodeAttribute.TOTAL_INFLOW,  "Total Inflow",   ('CFS', 'CMS'))
-    attribute_flooding       = SwmmOutputAttribute(_lib.NodeAttribute.FLOODING_LOSSES, "Flooding",       ('CFS', 'CMS'))
+#    attribute_depth          = SwmmOutputAttribute(_lib.NodeAttribute.INVERT_DEPTH,  "Depth",          ('ft', 'm'))
+#    attribute_head           = SwmmOutputAttribute(_lib.NodeAttribute.HYDRAULIC_HEAD, "Head",           ('ft', 'm'))
+#    attribute_volume         = SwmmOutputAttribute(_lib.NodeAttribute.PONDED_VOLUME, "Volume",         ('ft3', 'm3'))
+#    attribute_lateral_inflow = SwmmOutputAttribute(_lib.NodeAttribute.LATERAL_INFLOW, "Lateral Inflow", ('CFS', 'CMS'))
+#    attribute_total_inflow   = SwmmOutputAttribute(_lib.NodeAttribute.TOTAL_INFLOW,  "Total Inflow",   ('CFS', 'CMS'))
+#    attribute_flooding       = SwmmOutputAttribute(_lib.NodeAttribute.FLOODING_LOSSES, "Flooding",       ('CFS', 'CMS'))
 
-    attribute_depth.smo_type = _lib.SMO_node
-    attribute_head.smo_type = _lib.SMO_node
-    attribute_volume.smo_type = _lib.SMO_node
-    attribute_lateral_inflow.smo_type = _lib.SMO_node
-    attribute_total_inflow.smo_type = _lib.SMO_node
-    attribute_flooding.smo_type = _lib.SMO_node
+#    attribute_depth.smo_type = _lib.SMO_node
+#    attribute_head.smo_type = _lib.SMO_node
+#    attribute_volume.smo_type = _lib.SMO_node
+#    attribute_lateral_inflow.smo_type = _lib.SMO_node
+#    attribute_total_inflow.smo_type = _lib.SMO_node
+#    attribute_flooding.smo_type = _lib.SMO_node
 
-    attributes = [attribute_depth,
-                  attribute_head,
-                  attribute_volume,
-                  attribute_lateral_inflow,
-                  attribute_total_inflow,
-                  attribute_flooding]
+#    attributes = [attribute_depth,
+#                  attribute_head,
+#                  attribute_volume,
+#                  attribute_lateral_inflow,
+#                  attribute_total_inflow,
+#                  attribute_flooding]
 
     _count_flag = 0 # _lib.nodeCount
     _get_series = _lib.getnodeseries
     _get_attribute = _lib.getnodeattribute
     _get_result = _lib.getnoderesult
-    _element_type = _lib.ElementType.NODE  # typedef enum {subcatch, node, link, sys} smo_elementType
+#    _element_type = _lib.ElementType.NODE  # typedef enum {subcatch, node, link, sys} smo_elementType
     _first_pollutant = _lib.SMO_pollutant_conc_node
 
 
@@ -263,29 +266,29 @@ class SwmmOutputLink(SwmmOutputCategoryBase):
     # attribute_volume        = SwmmOutputAttribute(_lib.SMO_flow_volume,         "Volume",        ('ft3', 'm3'))
     # attribute_capacity      = SwmmOutputAttribute(_lib.SMO_capacity,            "Capacity",      ('', ''))
 
-    attribute_flow     = SwmmOutputAttribute(_lib.LinkAttribute.FLOW_RATE,     "Flow",     ('CFS', 'CMS'))
-    attribute_depth    = SwmmOutputAttribute(_lib.LinkAttribute.FLOW_DEPTH,    "Depth",    ('ft', 'm'))
-    attribute_velocity = SwmmOutputAttribute(_lib.LinkAttribute.FLOW_VELOCITY, "Velocity", ('fps', 'm/s'))
-    attribute_volume   = SwmmOutputAttribute(_lib.LinkAttribute.FLOW_VOLUME,   "Volume",   ('ft3', 'm3'))
-    attribute_capacity = SwmmOutputAttribute(_lib.LinkAttribute.CAPACITY,      "Capacity", ('', ''))
+   # attribute_flow     = SwmmOutputAttribute(_lib.LinkAttribute.FLOW_RATE,     "Flow",     ('CFS', 'CMS'))
+   # attribute_depth    = SwmmOutputAttribute(_lib.LinkAttribute.FLOW_DEPTH,    "Depth",    ('ft', 'm'))
+   # attribute_velocity = SwmmOutputAttribute(_lib.LinkAttribute.FLOW_VELOCITY, "Velocity", ('fps', 'm/s'))
+   # attribute_volume   = SwmmOutputAttribute(_lib.LinkAttribute.FLOW_VOLUME,   "Volume",   ('ft3', 'm3'))
+   # attribute_capacity = SwmmOutputAttribute(_lib.LinkAttribute.CAPACITY,      "Capacity", ('', ''))
 
-    attribute_flow.smo_type = _lib.SMO_link
-    attribute_depth.smo_type = _lib.SMO_link
-    attribute_velocity.smo_type = _lib.SMO_link
-    attribute_volume.smo_type = _lib.SMO_link
-    attribute_capacity.smo_type = _lib.SMO_link
+ #   attribute_flow.smo_type = _lib.SMO_link
+ #   attribute_depth.smo_type = _lib.SMO_link
+ #   attribute_velocity.smo_type = _lib.SMO_link
+ #   attribute_volume.smo_type = _lib.SMO_link
+ #   attribute_capacity.smo_type = _lib.SMO_link
 
-    attributes = [attribute_flow,
-                  attribute_depth,
-                  attribute_velocity,
-                  attribute_volume,
-                  attribute_capacity]
+ #   attributes = [attribute_flow,
+ #                 attribute_depth,
+ #                 attribute_velocity,
+ #                 attribute_volume,
+ #                 attribute_capacity]
 
     _count_flag = 0 # _lib.linkCount
     _get_series = _lib.getlinkseries
     _get_attribute = _lib.getlinkattribute
     _get_result = _lib.getlinkresult
-    _element_type = _lib.ElementType.LINK
+  #  _element_type = _lib.ElementType.LINK
     _first_pollutant = _lib.SMO_pollutant_conc_link
 
 
@@ -306,64 +309,64 @@ class SwmmOutputSystem(SwmmOutputCategoryBase):
     # attribute_outflow            = SwmmOutputAttribute(_lib.SMO_outfall_flows,        "Outflow",            ('CFS', 'CMS'))
     # attribute_storage            = SwmmOutputAttribute(_lib.SMO_volume_stored,        "Storage",            ('ft3', 'm3'))
     # attribute_evaporation        = SwmmOutputAttribute(_lib.SMO_evap_rate,            "Evaporation", ('in/day', 'mm/day'))
-    #attribute_pet                = SwmmOutputAttribute(_lib.SMO_pet,                  "PET",         ('in/day', 'mm/day'))
+    # attribute_pet                = SwmmOutputAttribute(_lib.SMO_pet,                  "PET",         ('in/day', 'mm/day'))
 
-    attribute_temperature   = SwmmOutputAttribute(_lib.SystemAttribute.AIR_TEMP, "Temperature",    ('deg F', 'deg C'))
-    attribute_precipitation = SwmmOutputAttribute(_lib.SystemAttribute.RAINFALL, "Precipitation",  ('in/hr', 'mm/hr'))
-    attribute_snow_depth    = SwmmOutputAttribute(_lib.SystemAttribute.SNOW_DEPTH, "Snow Depth",     ('in',    'mm'))
-    attribute_infiltration  = SwmmOutputAttribute(_lib.SystemAttribute.EVAP_INFIL_LOSS, "Infiltration",   ('in/hr', 'mm/hr'))
-    attribute_runoff        = SwmmOutputAttribute(_lib.SystemAttribute.RUNOFF_FLOW, "Runoff", ('CFS', 'CMS'))
-    attribute_dry_weather_inflow = SwmmOutputAttribute(_lib.SystemAttribute.DRY_WEATHER_INFLOW, "Dry Weather Inflow", ('CFS', 'CMS'))
-    attribute_groundwater_inflow = SwmmOutputAttribute(_lib.SystemAttribute.GW_INFLOW, "Groundwater Inflow", ('CFS', 'CMS'))
-    attribute_rdii_inflow   = SwmmOutputAttribute(_lib.SystemAttribute.RDII_INFLOW,  "I&I Inflow", ('CFS', 'CMS'))
-    attribute_direct_inflow = SwmmOutputAttribute(_lib.SystemAttribute.DIRECT_INFLOW, "Direct Inflow", ('CFS', 'CMS'))
-    attribute_total_inflow  = SwmmOutputAttribute(_lib.SystemAttribute.TOTAL_LATERAL_INFLOW, "Total Inflow", ('CFS', 'CMS'))
-    attribute_flooding      = SwmmOutputAttribute(_lib.SystemAttribute.FLOOD_LOSSES,  "Flooding", ('CFS', 'CMS'))
-    attribute_outflow       = SwmmOutputAttribute(_lib.SystemAttribute.OUTFALL_FLOWS, "Outflow",  ('CFS', 'CMS'))
-    attribute_storage       = SwmmOutputAttribute(_lib.SystemAttribute.VOLUME_STORED, "Storage",  ('ft3', 'm3'))
-    attribute_evaporation   = SwmmOutputAttribute(_lib.SystemAttribute.EVAP_RATE,     "Evaporation", ('in/day', 'mm/day'))
+ #   attribute_temperature   = SwmmOutputAttribute(_lib.SystemAttribute.AIR_TEMP, "Temperature",    ('deg F', 'deg C'))
+ #   attribute_precipitation = SwmmOutputAttribute(_lib.SystemAttribute.RAINFALL, "Precipitation",  ('in/hr', 'mm/hr'))
+ #   attribute_snow_depth    = SwmmOutputAttribute(_lib.SystemAttribute.SNOW_DEPTH, "Snow Depth",     ('in',    'mm'))
+ #   attribute_infiltration  = SwmmOutputAttribute(_lib.SystemAttribute.EVAP_INFIL_LOSS, "Infiltration",   ('in/hr', 'mm/hr'))
+ #   attribute_runoff        = SwmmOutputAttribute(_lib.SystemAttribute.RUNOFF_FLOW, "Runoff", ('CFS', 'CMS'))
+ #   attribute_dry_weather_inflow = SwmmOutputAttribute(_lib.SystemAttribute.DRY_WEATHER_INFLOW, "Dry Weather Inflow", ('CFS', 'CMS'))
+ #   attribute_groundwater_inflow = SwmmOutputAttribute(_lib.SystemAttribute.GW_INFLOW, "Groundwater Inflow", ('CFS', 'CMS'))
+ #   attribute_rdii_inflow   = SwmmOutputAttribute(_lib.SystemAttribute.RDII_INFLOW,  "I&I Inflow", ('CFS', 'CMS'))
+ #   attribute_direct_inflow = SwmmOutputAttribute(_lib.SystemAttribute.DIRECT_INFLOW, "Direct Inflow", ('CFS', 'CMS'))
+ #   attribute_total_inflow  = SwmmOutputAttribute(_lib.SystemAttribute.TOTAL_LATERAL_INFLOW, "Total Inflow", ('CFS', 'CMS'))
+ #   attribute_flooding      = SwmmOutputAttribute(_lib.SystemAttribute.FLOOD_LOSSES,  "Flooding", ('CFS', 'CMS'))
+ #   attribute_outflow       = SwmmOutputAttribute(_lib.SystemAttribute.OUTFALL_FLOWS, "Outflow",  ('CFS', 'CMS'))
+ #   attribute_storage       = SwmmOutputAttribute(_lib.SystemAttribute.VOLUME_STORED, "Storage",  ('ft3', 'm3'))
+ #   attribute_evaporation   = SwmmOutputAttribute(_lib.SystemAttribute.EVAP_RATE,     "Evaporation", ('in/day', 'mm/day'))
 
-    attribute_temperature.smo_type = _lib.SMO_sys
-    attribute_precipitation.smo_type = _lib.SMO_sys
-    attribute_snow_depth.smo_type = _lib.SMO_sys
-    attribute_infiltration.smo_type = _lib.SMO_sys
-    attribute_runoff.smo_type = _lib.SMO_sys
-    attribute_dry_weather_inflow.smo_type = _lib.SMO_sys
-    attribute_groundwater_inflow.smo_type = _lib.SMO_sys
-    attribute_rdii_inflow.smo_type = _lib.SMO_sys
-    attribute_direct_inflow.smo_type = _lib.SMO_sys
-    attribute_total_inflow.smo_type = _lib.SMO_sys
-    attribute_flooding.smo_type = _lib.SMO_sys
-    attribute_outflow.smo_type = _lib.SMO_sys
-    attribute_storage.smo_type = _lib.SMO_sys
-    attribute_evaporation.smo_type = _lib.SMO_sys
+  #  attribute_temperature.smo_type = _lib.SMO_sys
+  #  attribute_precipitation.smo_type = _lib.SMO_sys
+  #  attribute_snow_depth.smo_type = _lib.SMO_sys
+  #  attribute_infiltration.smo_type = _lib.SMO_sys
+  #  attribute_runoff.smo_type = _lib.SMO_sys
+  #  attribute_dry_weather_inflow.smo_type = _lib.SMO_sys
+  #  attribute_groundwater_inflow.smo_type = _lib.SMO_sys
+  #  attribute_rdii_inflow.smo_type = _lib.SMO_sys
+  #  attribute_direct_inflow.smo_type = _lib.SMO_sys
+  #  attribute_total_inflow.smo_type = _lib.SMO_sys
+  #  attribute_flooding.smo_type = _lib.SMO_sys
+  #  attribute_outflow.smo_type = _lib.SMO_sys
+  #  attribute_storage.smo_type = _lib.SMO_sys
+  #  attribute_evaporation.smo_type = _lib.SMO_sys
 
-    attributes = (attribute_temperature,
-                  attribute_precipitation,
-                  attribute_snow_depth,
-                  attribute_infiltration,
-                  attribute_runoff,
-                  attribute_dry_weather_inflow,
-                  attribute_groundwater_inflow,
-                  attribute_rdii_inflow,
-                  attribute_direct_inflow,
-                  attribute_total_inflow,
-                  attribute_flooding,
-                  attribute_outflow,
-                  attribute_storage,
-                  attribute_evaporation)
+  #  attributes = (attribute_temperature,
+  #                attribute_precipitation,
+  #                attribute_snow_depth,
+  #                attribute_infiltration,
+  #                attribute_runoff,
+  #                attribute_dry_weather_inflow,
+  #                attribute_groundwater_inflow,
+  #                attribute_rdii_inflow,
+  #                attribute_direct_inflow,
+  #                attribute_total_inflow,
+  #                attribute_flooding,
+  #                attribute_outflow,
+  #                attribute_storage,
+  #                attribute_evaporation)
 
     _get_series = _lib.getsystemseries
     _get_attribute = _lib.getsystemattribute
     _get_result = _lib.getsystemresult
-    _element_type = _lib.ElementType.SYSTEM
+#    _element_type = _lib.ElementType.SYSTEM
 
 
 class SwmmOutputPollutant(SwmmOutputCategoryBase):
     type_label = "Pollutant"
     all_units = ["mg/L", "ug/L", "count/L"]
     _count_flag = 0 # _lib.pollutantCount
-    _element_type = _lib.ElementType.SYSTEM  # This is recognized when getting names from the API. (There are no names for sys.)
+#    _element_type = _lib.ElementType.SYSTEM  # This is recognized when getting names from the API. (There are no names for sys.)
 
 
 swmm_output_object_types = (SwmmOutputSubcatchment, SwmmOutputNode, SwmmOutputLink, SwmmOutputSystem)

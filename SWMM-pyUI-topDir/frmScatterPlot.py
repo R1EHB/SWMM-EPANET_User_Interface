@@ -2,7 +2,7 @@ import PyQt5.QtGui as QtGui
 import PyQt5.QtCore as QtCore
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
 from ui.help import HelpHandler
-from ui.SWMM.frmScatterPlotDesigner import Ui_frmScatterPlot
+from frmScatterPlotDesigner import Ui_frmScatterPlot
 from ui.help import HelpHandler
 from core.graph import SWMM as graphSWMM
 

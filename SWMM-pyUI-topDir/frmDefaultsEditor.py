@@ -16,8 +16,8 @@ from core.swmm.hydrology.subcatchment import CurveNumberInfiltration
 from core.swmm.hydraulics.link import CrossSection
 from core.swmm.hydraulics.link import CrossSectionShape
 from ui.text_plus_button import TextPlusButton
-from ui.SWMM.frmInfiltration import frmInfiltration
-from ui.SWMM.frmCrossSection import frmCrossSection
+from frmInfiltration import frmInfiltration
+from frmCrossSection import frmCrossSection
 from ui.model_utility import ParseData
 from ui.help import HelpHandler
 

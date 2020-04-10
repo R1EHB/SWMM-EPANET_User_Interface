@@ -1,0 +1,2 @@
+============================= Name Matched: aenum ==============================
+python3-aenum.noarch : Advanced Enumerations, NamedTuples and NamedConstants for Python

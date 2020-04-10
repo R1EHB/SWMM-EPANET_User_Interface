@@ -7,8 +7,26 @@
  *
 */
 
+
+/*
+Revised 10 April 2020: Erik Beck, USEPA R1
+Revised to make more compatible with Python 3.7 and more platform
+Independent.
+
+In particular, trying to solve problem where python isn't properly
+seeing the right parts of the compiled library file from the c/swig code.
+
+Adding # define PY_SSIZE_T_CLEAN  "Make "s#" use Py_ssize_t rather than int. "
+
+https://docs.python.org/3/extending/extending.html#parsetuple
+*/
+
 %module(package="swmm") output
 %{
+
+#define PY_SSIZE_T_CLEAN  /* Make "s#" use Py_ssize_t rather than int. */
+#include <Python.h>
+
 #include "swmm_output.h"
 
 #define SWIG_FILE_WITH_INIT

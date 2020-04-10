@@ -3,7 +3,7 @@ import PyQt5.QtGui as QtGui
 from PyQt5.QtWidgets import QMainWindow, QAbstractItemView, QMessageBox
 
 import Externals.swmm.outputapi.SMOutputSWIG as SMO
-from ui.SWMM.frmTableSelectionDesigner import Ui_frmTableSelection
+from frmTableSelectionDesigner import Ui_frmTableSelection
 from ui.frmGenericListOutput import frmGenericListOutput
 
 

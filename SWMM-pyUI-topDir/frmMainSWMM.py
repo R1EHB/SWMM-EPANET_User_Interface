@@ -90,13 +90,13 @@ from core.swmm.labels import Label
 from core.swmm.hydraulics.node import SubCentroid
 from core.swmm.hydraulics.link import SubLink
 
-from ui.SWMM.frmRunSWMM import frmRunSWMM
-from ui.SWMM.frmDefaultsEditor import frmDefaultsEditor
+from frmRunSWMM import frmRunSWMM
+from frmDefaultsEditor import frmDefaultsEditor
 
 import Externals.swmm.outputapi.SMOutputSWIG as SMO
 from core.indexed_list import IndexedList
 import ui.convenience
-from ui.SWMM.inifile import DefaultsSWMM
+from inifile import DefaultsSWMM
 from datetime import timedelta
 from tempfile import *
 

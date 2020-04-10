@@ -1,0 +1,12 @@
+Script started on 2020-04-10 11:39:10-04:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="170" LINES="46"]
+]0;erikbeck@hood-canal:~/OtherGits/SWMM-EPANET_User_Interface/SWMM-pyUI-topDir/Externals/swmm/outputapi[erikbeck@hood-canal outputapi]$ exit[2Psu[K[Kpython SMOutputSWIG.py 
+Traceback (most recent call last):
+  File "SMOutputSWIG.py", line 171, in <module>
+    class SwmmOutputSubcatchment(SwmmOutputCategoryBase):
+  File "SMOutputSWIG.py", line 183, in SwmmOutputSubcatchment
+    attribute_precipitation    = SwmmOutputAttribute(_lib.SubcatchAttribute.RAINFALL, "Precipitation", ('in/hr', 'mm/hr'))
+AttributeError: module '_output' has no attribute 'SubcatchAttribute'
+]0;erikbeck@hood-canal:~/OtherGits/SWMM-EPANET_User_Interface/SWMM-pyUI-topDir/Externals/swmm/outputapi[erikbeck@hood-canal outputapi]$ exit
+exit
+
+Script done on 2020-04-10 11:39:28-04:00 [COMMAND_EXIT_CODE="1"]

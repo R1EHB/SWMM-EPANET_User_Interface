@@ -1,7 +1,7 @@
 import PyQt5.QtGui as QtGui
 import PyQt5.QtCore as QtCore
 from PyQt5.QtWidgets import QMainWindow, QApplication, QAbstractItemView
-from ui.SWMM.frmProfilePlotDesigner import Ui_frmProfilePlot
+from frmProfilePlotDesigner import Ui_frmProfilePlot
 from ui.help import HelpHandler
 import core.swmm.hydraulics.node
 
