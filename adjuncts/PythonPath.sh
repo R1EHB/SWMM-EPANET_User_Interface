@@ -18,9 +18,11 @@ SWMO="/home/erikbeck/OtherGits/SWMM-EPANET_User_Interface/src/ui:/home/erikbeck/
 
 PYSIS="/usr/lib64/python3.7/site-packages/PyQt5:/usr/lib64/python3.7/site-packages/wx"
 
-PYQGIS="/usr/lib64/python3.7/site-packages/qgis:/usr/lib64/python3.7/site-packages/qgis/core:/usr/lib64/python3.7/site-packages/qgis/core/additions"
+PYQGIS1="/usr/lib64/python3.7/site-packages/qgis:/usr/lib64/python3.7/site-packages/qgis/core:/usr/lib64/python3.7/site-packages/qgis/core/additions"
 
-PYTHONPATH=$PYSYSBASE:$MYPYLIB:$SWMEXT:$SWMUI:$SWMO:$PYSIS:$PYQGIS
+# PYTHONPATH=$PYSYSBASE:$MYPYLIB:$SWMEXT:$SWMUI:$SWMO:$PYSIS:$PYQGIS
+
+ PYTHONPATH=$PYSYSBASE:$MYPYLIB:$PYSIS:$PYQGIS1
 
 export PYTHONPATH
 
