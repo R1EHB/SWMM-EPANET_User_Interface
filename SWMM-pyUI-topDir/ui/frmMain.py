@@ -150,6 +150,13 @@ class frmMain(QMainWindow, Ui_frmMain):
 
         try:
             # TODO: make sure this works on all platforms, both in dev environment and in our installed packages
+            # Erik Beck, beck.erik@epa.gov: 20 April 2020 Note:  Not working on linux
+            # Changed "Path" to "PATH" in os.environ in all points below to fix a key error (Python didn't find the value Path so blew up
+            # Changing this to all caps, correct in Linux and probably for unix, gets past the key error
+            # But then causes new problems to be sorted out.
+            #
+            #
+            #
             orig_path = os.environ["PATH"]
             print("Original Path = " + orig_path)
             search_paths = []
