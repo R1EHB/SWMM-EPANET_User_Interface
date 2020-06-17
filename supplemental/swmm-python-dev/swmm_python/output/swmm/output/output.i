@@ -21,6 +21,8 @@ Adding # define PY_SSIZE_T_CLEAN  "Make "s#" use Py_ssize_t rather than int. "
 https://docs.python.org/3/extending/extending.html#parsetuple
 */
 
+/* Revised again for python 3.8 June 16, 2020 by Erik Beck */
+
 %module(package="swmm") output
 %{
 
@@ -59,10 +61,12 @@ and return a (possibly) different pointer */
 %typemap(in) SMO_Handle* p_handle_inout (SMO_Handle retval)
 {
    /* INOUT in */
-   SWIG_ConvertPtr(obj0,SWIG_as_voidptrptr(&retval), 0, 0);
-    $1 = &retval;
+  //   SWIG_ConvertPtr(obj0,SWIG_as_voidptrptr(&retval), 0, 0); /* changed to line below */
+
+  SWIG_ConvertPtr(swig_obj[0],SWIG_as_voidptrptr(&retval), 0, 0); 
+  $1 = &retval;
 }
-/* No need for special IN typemap for opaque pointers, it works anyway */
+/* No need for special IN typemap for opaque pointers, it works anyway */ /* Not sure about this. EHB, june 2020 */
 
 
 /* TYPEMAP FOR IGNORING INT ERROR CODE RETURN VALUE */

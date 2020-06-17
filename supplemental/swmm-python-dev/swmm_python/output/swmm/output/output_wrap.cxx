@@ -4424,7 +4424,9 @@ SWIGINTERN PyObject *_wrap_close(PyObject *SWIGUNUSEDPARM(self), PyObject *args)
   swig_obj[0] = args;
   {
     /* INOUT in */
-    SWIG_ConvertPtr(obj0,SWIG_as_voidptrptr(&retval1), 0, 0);
+    //   SWIG_ConvertPtr(obj0,SWIG_as_voidptrptr(&retval1), 0, 0); /* changed to line below */
+    //  SWIG_ConvertPtr(obj,SWIG_as_voidptrptr(&retval1), 0, 0);
+    SWIG_ConvertPtr(swig_obj[0],SWIG_as_voidptrptr(&retval1), 0, 0); 
     arg1 = &retval1;
   }
   result = (int)SMO_close(arg1);

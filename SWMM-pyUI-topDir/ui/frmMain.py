@@ -181,10 +181,12 @@ class frmMain(QMainWindow, Ui_frmMain):
                 if not updir or updir == dirname:
                     break
                 dirname = updir
-            search_paths.extend([r"C:\OSGeo4W64\apps\qgis",
-                                 r"C:\OSGeo4W\apps\qgis",
-                                 r"/usr",
-                                 r"/Applications/QGIS.app/Contents/MacOS"])
+# Commenting these out to hopefully fix linux barfs. Erik beck, june 2020
+                
+          #  search_paths.extend([r"C:\OSGeo4W64\apps\qgis",
+          #                       r"C:\OSGeo4W\apps\qgis",
+          #                       r"/usr",
+          #                       r"/Applications/QGIS.app/Contents/MacOS"])
             for qgis_home in search_paths:
                 try:
                     print("Search " + qgis_home)
