@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>frmMain</class>
+ <class>uxMain</class>
  <widget class="QMainWindow" name="frmMain">
   <property name="geometry">
    <rect>

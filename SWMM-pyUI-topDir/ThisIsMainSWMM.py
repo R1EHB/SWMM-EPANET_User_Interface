@@ -12,7 +12,7 @@ from time import sleep
 
 from ui.model_utility import QString, from_utf8, transl8, process_events, StatusMonitor0
 from ui.help import HelpHandler
-from ui.frmMain import frmMain, ModelLayers
+from ui.uiMain import frmMain, ModelLayers
 from frmDates import frmDates
 from frmEvents import frmEvents
 from frmDynamicWave import frmDynamicWave

@@ -155,32 +155,33 @@ class frmMain(QMainWindow, Ui_frmMain):
             # Changing this to all caps, correct in Linux and probably for unix, gets past the key error
             # But then causes new problems to be sorted out.
             #
-            #
+            #  Note: this path finding code is really ugly.
             #
             orig_path = os.environ["PATH"]
             print("Original Path = " + orig_path)
             search_paths = []
             install_dir_base = os.path.basename(INSTALL_DIR)
-            if ini_setting.release_mode or \
-               install_dir_base == "EPANET-UI" or \
-               install_dir_base == "SWMM-UI":
-                search_paths.append(INSTALL_DIR)
+           # if ini_setting.release_mode or \
+           #    install_dir_base == "EPANET-UI" or \
+           #    install_dir_base == "SWMM-UI":
+           #     search_paths.append(INSTALL_DIR)
+
             if "QGIS_PREFIX_PATH" in os.environ:
                 search_paths.append(os.environ.get("QGIS_PREFIX_PATH"))
             if "QGIS_HOME" in os.environ:
                 search_paths.append(os.environ.get("QGIS_HOME"))
-            dirname = INSTALL_DIR
-            package_dir = INSTALL_DIR + "\\dist\\" + self.model + "-UI"
-            if os.path.isdir(package_dir):
-                dirname = package_dir
-                os.environ["QT_PLUGIN_PATH"] = dirname + "\\plugins"
-            while dirname:
-                search_paths.append(dirname)
-                search_paths.append(os.path.join(dirname, "qgis"))
-                updir = os.path.dirname(dirname)
-                if not updir or updir == dirname:
-                    break
-                dirname = updir
+           # dirname = INSTALL_DIR
+           # package_dir = INSTALL_DIR + "\\dist\\" + self.model + "-UI"
+           # if os.path.isdir(package_dir):
+           #     dirname = package_dir
+           #     os.environ["QT_PLUGIN_PATH"] = dirname + "\\plugins"
+           # while dirname:
+           #     search_paths.append(dirname)
+           #     search_paths.append(os.path.join(dirname, "qgis"))
+           #     updir = os.path.dirname(dirname)
+           #     if not updir or updir == dirname:
+           #         break
+           #     dirname = updir
 # Commenting these out to hopefully fix linux barfs. Erik beck, june 2020
                 
           #  search_paths.extend([r"C:\OSGeo4W64\apps\qgis",
